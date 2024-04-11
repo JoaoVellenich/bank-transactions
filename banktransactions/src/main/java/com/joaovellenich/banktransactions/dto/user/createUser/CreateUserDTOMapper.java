@@ -13,4 +13,15 @@ public class CreateUserDTOMapper {
                 .balance(request.balance())
                 .build();
     }
+
+    public CreateUserResponseDTO toResponse(User userData){
+        return CreateUserResponseDTO.builder()
+                .id(userData.getId())
+                .fuelName(userData.getFuelName())
+                .email(userData.getEmail())
+                .document(userData.getDocument())
+                .userType(userData.getUserType())
+                .balance(userData.getBalance())
+                .build();
+    }
 }
