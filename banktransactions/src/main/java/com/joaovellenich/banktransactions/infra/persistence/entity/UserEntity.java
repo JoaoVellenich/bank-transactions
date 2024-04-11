@@ -2,10 +2,7 @@ package com.joaovellenich.banktransactions.infra.persistence.entity;
 
 import com.joaovellenich.banktransactions.domain.UserType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.math.BigDecimal;
@@ -14,6 +11,8 @@ import java.math.BigDecimal;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
 @EqualsAndHashCode(of = "id")
 public class UserEntity {
