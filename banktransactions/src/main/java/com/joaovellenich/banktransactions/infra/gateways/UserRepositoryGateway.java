@@ -7,6 +7,7 @@ import com.joaovellenich.banktransactions.infra.persistence.mapper.UserMapper;
 import com.joaovellenich.banktransactions.infra.persistence.repository.UserRepository;
 
 import javax.swing.text.html.Option;
+import java.math.BigDecimal;
 
 public class UserRepositoryGateway implements UserGateway {
     private final UserRepository userRepository;
@@ -38,5 +39,22 @@ public class UserRepositoryGateway implements UserGateway {
         var userEntity = this.userMapper.toEntity(newUser);
         var savedUser = this.userRepository.save(userEntity);
         return this.userMapper.toDomain(savedUser);
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        var userEntity = this.userRepository.findById(id);
+        return userEntity.map(this.userMapper::toDomain).orElse(null);
+    }
+
+    @Override
+    public void updateBalance(Long id, BigDecimal newBalance) {
+        var userEntity = this.userRepository.findById(id);
+        if(userEntity.isEmpty()){
+            return;
+        }
+        var userUpdated = userEntity.get();
+        userUpdated.setBalance(newBalance);
+        this.userRepository.save(userUpdated);
     }
 }
