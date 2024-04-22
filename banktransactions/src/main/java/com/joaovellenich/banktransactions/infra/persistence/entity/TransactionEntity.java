@@ -2,10 +2,7 @@ package com.joaovellenich.banktransactions.infra.persistence.entity;
 
 import com.joaovellenich.banktransactions.domain.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.math.BigDecimal;
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 @EqualsAndHashCode(of = "id")
 public class TransactionEntity {
     @Id
@@ -27,7 +25,7 @@ public class TransactionEntity {
     @ManyToOne
     @JoinColumn(name = "receiver_id")
     private UserEntity receiver;
-    private BigDecimal amount;
+    private BigDecimal value;
     @CreatedDate
     private LocalDateTime createdAt;
 }
