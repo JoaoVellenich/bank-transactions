@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
+@Data
 public class Transactions {
     private Long id;
     private User payer;

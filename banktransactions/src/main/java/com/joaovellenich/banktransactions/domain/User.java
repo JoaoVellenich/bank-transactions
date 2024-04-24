@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
+@Data
 public class User {
     private Long id;
     private String fuelName;
