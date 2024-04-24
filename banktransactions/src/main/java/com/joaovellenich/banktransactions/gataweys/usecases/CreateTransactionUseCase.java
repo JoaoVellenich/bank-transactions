@@ -46,6 +46,8 @@ public class CreateTransactionUseCase {
         this.userGateway.updateBalance(payer.getId(), payer.getBalance());
         this.userGateway.updateBalance(receiver.getId(), receiver.getBalance());
 
+        System.out.println(payer);
+        System.out.println(receiver);
         Transactions newTransaction = Transactions.builder()
                 .payer(payer)
                 .receiver(receiver)
