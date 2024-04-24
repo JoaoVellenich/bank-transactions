@@ -18,6 +18,7 @@ public class UserMapper {
 
     public UserEntity toEntity(User userDomain){
         return UserEntity.builder()
+                .id(userDomain.getId())
                 .fullName(userDomain.getFuelName())
                 .email(userDomain.getEmail())
                 .password(userDomain.getPassword())
