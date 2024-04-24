@@ -14,17 +14,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Getter
+@Data
 @EqualsAndHashCode(of = "id")
 public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "sender_id")
     private UserEntity payer;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "receiver_id")
     private UserEntity receiver;
+    @Column(name = "balance")
     private BigDecimal value;
     @CreatedDate
     private LocalDateTime createdAt;

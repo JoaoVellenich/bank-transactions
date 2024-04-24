@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
+@Data
 @EqualsAndHashCode(of = "id")
 public class UserEntity {
     @Id
