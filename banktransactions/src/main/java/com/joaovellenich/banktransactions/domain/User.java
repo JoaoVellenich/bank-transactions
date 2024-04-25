@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Data
 public class User {
     private Long id;
-    private String fuelName;
+    private String fullName;
     private String email;
     private String password;
     private String document;
