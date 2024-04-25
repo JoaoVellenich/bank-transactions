@@ -6,8 +6,8 @@ public class CreateTransactionDTOMapper {
     public CreateTransactionResponseDTO toResponse(Transactions transactions){
         return CreateTransactionResponseDTO.builder()
                 .transactionId(transactions.getId())
-                .payerName(transactions.getPayer().getFuelName())
-                .receiverName(transactions.getReceiver().getFuelName())
+                .payerName(transactions.getPayer().getFullName())
+                .receiverName(transactions.getReceiver().getFullName())
                 .value(transactions.getValue())
                 .build();
     }

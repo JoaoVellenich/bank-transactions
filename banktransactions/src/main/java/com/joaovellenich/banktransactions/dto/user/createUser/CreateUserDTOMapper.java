@@ -5,7 +5,7 @@ import com.joaovellenich.banktransactions.domain.User;
 public class CreateUserDTOMapper {
     public User toDomain(CreateUserRequestDTO request){
         return User.builder()
-                .fuelName(request.fuelName())
+                .fullName(request.fuelName())
                 .email(request.email())
                 .password(request.password())
                 .document(request.document())
@@ -17,7 +17,7 @@ public class CreateUserDTOMapper {
     public CreateUserResponseDTO toResponse(User userData){
         return CreateUserResponseDTO.builder()
                 .id(userData.getId())
-                .fuelName(userData.getFuelName())
+                .fuelName(userData.getFullName())
                 .email(userData.getEmail())
                 .document(userData.getDocument())
                 .userType(userData.getUserType())

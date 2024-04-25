@@ -7,7 +7,7 @@ public class UserMapper {
     public User toDomain(UserEntity userEntity){
         return User.builder()
                 .id(userEntity.getId())
-                .fuelName(userEntity.getFullName())
+                .fullName(userEntity.getFullName())
                 .email(userEntity.getEmail())
                 .password(userEntity.getPassword())
                 .document(userEntity.getDocument())
@@ -19,7 +19,7 @@ public class UserMapper {
     public UserEntity toEntity(User userDomain){
         return UserEntity.builder()
                 .id(userDomain.getId())
-                .fullName(userDomain.getFuelName())
+                .fullName(userDomain.getFullName())
                 .email(userDomain.getEmail())
                 .password(userDomain.getPassword())
                 .document(userDomain.getDocument())
